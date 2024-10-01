@@ -2,28 +2,28 @@
 {
     public class TriangleFactory
     {
-        public static Triangle CreateFromSides(double a, double b, double c)
+        public static Triangle CreateFromSides(double sideA, double sideB, double sideC)
         {
-            return new Triangle(a, b, c);
+            return new Triangle(sideA, sideB, sideC);
         }
 
-        public static Triangle CreateRightAngledFromTwoSides(double a, double b)
+        public static Triangle CreateRightAngledFromTwoSides(double sideA, double sideB)
         {
-            double c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
-            return new Triangle(a, b, c);
+            double sideC = Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2));
+            return new Triangle(sideA, sideB, sideC);
         }
 
-        public static Triangle CreateEquilateralTriangle(double a)
+        public static Triangle CreateEquilateralTriangle(double sideA)
         {
-            return new Triangle(a, a, a);
+            return new Triangle(sideA, sideA, sideA);
         }
 
-        public static Triangle CreateFromTwoSidesAndAngle(double a, double b, double angleDegrees)
+        public static Triangle CreateFromTwoSidesAndAngle(double sideA, double sideB, double angleDegrees)
         {
             double angleRadians = angleDegrees * (Math.PI / 180);
             
-            double c = Math.Sqrt(a * a + b * b - 2 * a * b * Math.Cos(angleRadians));
-            return new Triangle(a, b, c);
+            double sideC = Math.Sqrt(sideA * sideA + sideB * sideB - 2 * sideA * sideB * Math.Cos(angleRadians));
+            return new Triangle(sideA, sideB, sideC);
         }
     }
 }
