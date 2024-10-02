@@ -1,4 +1,4 @@
-﻿namespace MindboxLibrary
+﻿namespace MindboxLibrary.Circle
 {
     public class Circle : IShape
     {
@@ -6,6 +6,9 @@
 
         public Circle(double radius)
         {
+            if (radius <= 0)
+                throw new ArgumentException("Радиус должен быть больше нуля!");
+
             _radius = radius;
         }
 

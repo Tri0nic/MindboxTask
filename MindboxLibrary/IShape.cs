@@ -1,6 +1,6 @@
 ﻿namespace MindboxLibrary
 {
-    internal interface IShape
+    public interface IShape
     {
         public double CalculateArea();
     }

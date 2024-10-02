@@ -1,4 +1,4 @@
-﻿namespace MindboxLibrary
+﻿namespace MindboxLibrary.Triangle
 {
     public class Triangle : IShape
     {
@@ -31,9 +31,9 @@
             return Math.Abs(Math.Pow(sides[2], 2) - Math.Pow(sides[1], 2) - Math.Pow(sides[0], 2)) < 0.0001;
         }
 
-        private bool IsValidTriangle(double a, double b, double c)
+        private bool IsValidTriangle(double sideA, double sideB, double sideC)
         {
-            return a + b > c && a + c > b && b + c > a;
+            return sideA > 0 && sideB > 0 && sideC > 0 && sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
         }
     }
 }
