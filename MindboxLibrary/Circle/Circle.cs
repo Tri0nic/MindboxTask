@@ -2,19 +2,19 @@
 {
     public class Circle : IShape
     {
-        public readonly double _radius;
+        public double Radius { get; }
 
         public Circle(double radius)
         {
             if (radius <= 0)
                 throw new ArgumentException("Радиус должен быть больше нуля!");
 
-            _radius = radius;
+            Radius = radius;
         }
 
         public double CalculateArea()
         {
-            return Math.PI * Math.Pow(_radius, 2);
+            return Math.PI * Math.Pow(Radius, 2);
         }
     }
 }

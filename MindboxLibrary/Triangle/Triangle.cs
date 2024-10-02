@@ -2,30 +2,30 @@
 {
     public class Triangle : IShape
     {
-        private readonly double _sideA;
-        private readonly double _sideB;
-        private readonly double _sideC;
+        public double SideA { get; }
+        public double SideB { get; }
+        public double SideC { get; }
 
         public Triangle(double sideA, double sideB, double sideC)
         {
             if (!IsValidTriangle(sideA, sideB, sideC))
                 throw new ArgumentException("Стороны не образуют треугольник!");
 
-            _sideA = sideA;
-            _sideB = sideB;
-            _sideC = sideC;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
         }
 
         public double CalculateArea()
         {
-            double semiPerimeter = (_sideA + _sideB + _sideC) / 2;
+            double semiPerimeter = (SideA + SideB + SideC) / 2;
 
-            return Math.Sqrt(semiPerimeter * (semiPerimeter - _sideA) * (semiPerimeter - _sideB) * (semiPerimeter - _sideC));
+            return Math.Sqrt(semiPerimeter * (semiPerimeter - SideA) * (semiPerimeter - SideB) * (semiPerimeter - SideC));
         }
 
         public bool IsRightAngled()
         {
-            double[] sides = { _sideA, _sideB, _sideC };
+            double[] sides = { SideA, SideB, SideC };
             Array.Sort(sides);
 
             return Math.Abs(Math.Pow(sides[2], 2) - Math.Pow(sides[1], 2) - Math.Pow(sides[0], 2)) < 0.0001;

@@ -5,14 +5,27 @@ namespace MindboxLibrary.Triangle.Tests
     [TestClass]
     public class TriangleTests
     {
+        private ITriangleFactory _triangleFactory;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _triangleFactory = new TriangleFactory();
+        }
+
         [TestMethod]
-        public void Triangle_Constructor_ShouldThrowArgumentException_WhenSidesDoNotFormTriangle()
+        public void CreateTriangleFromSides_ShouldReturnTriangle_WithCorrectSides()
         {
             // Arrange
-            double sideA = 1.0, sideB = 2.0, sideC = 10.0;
+            double sideA = 3.0, sideB = 4.0, sideC = 5.0;
 
-            // Act & Assert
-            Assert.ThrowsException<ArgumentException>(() => new Triangle(sideA, sideB, sideC), "Стороны не образуют треугольник!");
+            // Act
+            Triangle triangle = _triangleFactory.CreateTriangleFromSides(sideA, sideB, sideC);
+
+            // Assert
+            Assert.AreEqual(sideA, triangle.SideA);
+            Assert.AreEqual(sideB, triangle.SideB);
+            Assert.AreEqual(sideC, triangle.SideC);
         }
 
         [TestMethod]
@@ -31,7 +44,7 @@ namespace MindboxLibrary.Triangle.Tests
         }
 
         [TestMethod]
-        public void IsRightAngled_ShouldReturnTrue_ForRightAngledTriangle()
+        public void IsRightAngled_ValidTriangle_ShouldReturnTrue()
         {
             // Arrange
             double sideA = 3.0, sideB = 4.0, sideC = 5.0;
@@ -45,7 +58,7 @@ namespace MindboxLibrary.Triangle.Tests
         }
 
         [TestMethod]
-        public void IsRightAngled_ShouldReturnFalse_ForNonRightAngledTriangle()
+        public void IsRightAngled_NonRightAngledTriangle_ShouldReturnFalse()
         {
             // Arrange
             double sideA = 2.0, sideB = 3.0, sideC = 4.0;
@@ -56,6 +69,16 @@ namespace MindboxLibrary.Triangle.Tests
 
             // Assert
             Assert.IsFalse(isRightAngled);
+        }
+
+        [TestMethod]
+        public void InvalidTriangle_ShouldThrowArgumentException()
+        {
+            // Arrange
+            double sideA = 1.0, sideB = 2.0, sideC = 10.0;
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => new Triangle(sideA, sideB, sideC));
         }
     }
 }

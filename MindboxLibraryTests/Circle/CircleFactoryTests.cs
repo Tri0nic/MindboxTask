@@ -23,7 +23,7 @@ namespace MindboxLibrary.Circle.Tests
             Circle circle = _circleFactory.CreateCircleFromRadius(radius);
 
             // Assert
-            Assert.AreEqual(radius, circle._radius);
+            Assert.AreEqual(radius, circle.Radius);
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace MindboxLibrary.Circle.Tests
 
             // Assert
             double expectedRadius = diameter / 2;
-            Assert.AreEqual(expectedRadius, circle._radius);
+            Assert.AreEqual(expectedRadius, circle.Radius);
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace MindboxLibrary.Circle.Tests
 
             // Assert
             double expectedRadius = perimeter / (2 * Math.PI);
-            Assert.AreEqual(expectedRadius, circle._radius, 1e-5);
+            Assert.AreEqual(expectedRadius, circle.Radius, 1e-5);
         }
 
         [TestMethod]

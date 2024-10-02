@@ -23,9 +23,9 @@ namespace MindboxLibrary.Triangle.Tests
             Triangle triangle = _triangleFactory.CreateTriangleFromSides(sideA, sideB, sideC);
 
             // Assert
-            Assert.AreEqual(sideA, triangle.GetType().GetField("_sideA", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
-            Assert.AreEqual(sideB, triangle.GetType().GetField("_sideB", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
-            Assert.AreEqual(sideC, triangle.GetType().GetField("_sideC", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
+            Assert.AreEqual(sideA, triangle.SideA);
+            Assert.AreEqual(sideB, triangle.SideB);
+            Assert.AreEqual(sideC, triangle.SideC);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace MindboxLibrary.Triangle.Tests
 
             // Assert
             double expectedSideC = 5.0;
-            Assert.AreEqual(expectedSideC, triangle.GetType().GetField("_sideC", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
+            Assert.AreEqual(expectedSideC, triangle.SideC);
             Assert.IsTrue(triangle.IsRightAngled());
         }
 
@@ -53,9 +53,9 @@ namespace MindboxLibrary.Triangle.Tests
             Triangle triangle = _triangleFactory.CreateTriangleEquilateralTriangle(sideA);
 
             // Assert
-            Assert.AreEqual(sideA, triangle.GetType().GetField("_sideA", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
-            Assert.AreEqual(sideA, triangle.GetType().GetField("_sideB", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
-            Assert.AreEqual(sideA, triangle.GetType().GetField("_sideC", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
+            Assert.AreEqual(sideA, triangle.SideA);
+            Assert.AreEqual(sideA, triangle.SideB);
+            Assert.AreEqual(sideA, triangle.SideC);
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@ namespace MindboxLibrary.Triangle.Tests
 
             // Assert
             double expectedSideC = 5.0;
-            Assert.AreEqual(expectedSideC, triangle.GetType().GetField("_sideC", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(triangle));
+            Assert.AreEqual(expectedSideC, triangle.SideC);
         }
 
         [TestMethod]
